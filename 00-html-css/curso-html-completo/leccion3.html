@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Última lección</title>
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg"> <!-- Favicon -->
+</head>
+<body>
+     <!-- Más etiquetas semánticas interesantes -->
+    <figure>
+        <img loading="lazy" src="./images/comida.webp" alt="Unas tortitas mexicanas" width="400px" height="300px">
+        <figcaption>Un plato de comida mexicana</figcaption>
+    </figure> <!-- Loading lazy se usa para imágenes más abajo de las páginas -->
+    
+    <!-- Formularios -->
+    <h2>Formulario de contacto</h2>
+    <form action="https://httpbin.org/post" method="post">
+
+        <fieldset> <!-- Agrupación de los diferentes inputs que vamos a tener -->
+            <legend>Información personal</legend>
+            <div>
+                <label for="name">Nombre:</label>
+                <input type="text" name="name" id="name" placeholder="Juan Fernández Ceacero" required>
+            </div>
+
+            <!-- Tambíen se puede envolver el input en el label -->
+            <div>
+                <label>
+                    Edad:
+                    <input type="number" name="age" placeholder="20" required min="0" max="99">
+                </label>
+            </div>
+            <div>
+                <label>
+                    Email:
+                    <input type="email" name="email" placeholder="juanf.ceacero@gmail.com">
+                </label>
+            </div>
+            <div>
+                <label>
+                    Teléfono:
+                    <input type="tel" name="phone" placeholder="999222111" required pattern="[0-9]{9}">
+                </label>
+            </div>
+
+            <div>
+                <label for="why">¿Por qué quieres contactar?</label><br>
+                <select name="why" id="why">
+                    <option value="">-- Selecciona una opción --</option>
+                    <option value="Trabajo">Trabajo</option>
+                    <option value="Me aburro">Me aburro</option>
+                </select><br>
+                
+                <label>
+                    ¿Aceptas los términos?
+                    <input type="checkbox" name="terms" required>
+
+                </label>
+
+            </div>
+            <!-- También se puede hacer con DataList, mucho mejor -->
+            <div>
+                <datalist id="idiomas">
+                    <option value="Lenguaje1">Lenguaje1</option>
+                    <option value="Lenguaje2">Lenguaje2</option>
+                    <option value="Lenguaje3">Lenguaje3</option>
+                    <option value="Lenguaje4">Lenguaje4</option>
+                </datalist>
+                <label>
+                    Elige el idioma:
+                    <input list="idiomas" name="lenguajes" required>
+                </label>
+
+            </div>
+
+        </fieldset>
+
+        <button>Enviar</button> <!-- Los botones dentro de un formulario son de type="submit" -->
+
+    </form>
+
+    <!-- De Midudev etiqueta Dialog, details -->
+
+    <section>
+        <h2>Preguntas frecuentes</h2>
+        <details open>
+            <summary>¿Qué estudios tienes?</summary>
+            <p>Estudié Ingeniería Informática en la universidad.</p>
+        </details>
+
+        <details>
+            <summary>¿Cuánto tiempo llevas programando?</summary>
+            <p>Llevo más de 5 años programando en distintos lenguajes como Python, JavaScript y C++.</p>
+        </details>
+
+        <details>
+            <summary>¿Qué lenguajes de programación manejas?</summary>
+            <p>Principalmente Python, JavaScript, Java y C++. También he trabajado con HTML, CSS y SQL.</p>
+        </details>
+    </section>
+
+    <section>
+        <h2>Uso de la etiqueta dialog</h2>
+        <dialog id="dialog">
+            <h1>¿Sabías que puedes abrir una modal así?</h1>
+            <p>Y además es totalmente nativo</p>
+            <button id="cerrar">Cerrar modal</button>
+        </dialog>
+        <button id="abrir">Abrir modal</button>
+
+        <script>
+            window.abrir.addEventListener('click', () => {
+                window.dialog.showModal()
+            })
+
+            window.cerrar.addEventListener('click', () => {
+                window.dialog.close()
+            })
+        </script>
+    </section>
+
+</body>
+</html>
